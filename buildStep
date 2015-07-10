@@ -1,0 +1,78 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    buildStep                                          :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: rcargou <rcargou@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2015/07/09 18:34:05 by rcargou           #+#    #+#              #
+#    Updated: 2015/07/10 23:25:21 by rcargou          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+1 <-	-Create the .std file
+			This must contains an index a gameObject can refer to.
+			It must containes a list of models and a way to bind them.
+				In the case of animated object, thoses paths should refer to the bone of the entity.
+					Bones must be imbricked : shoulder must contains elbow etc...
+			It also should contains hitbox configuration.
+				The kind of primitive and a way to bind them with models must be present.
+			More configuration could be added later.
+			A std object CAN NOT be considered as a gameObject. /->
+
+2 <-	-Generate pre-existing object initialisation, directory seek, parsing, configuration and indexation.
+			The animator will be implemented later.
+			All stdObject contains a list of glObject.
+				glObject contains a list of vertices, textures, indices and modelsMatrice.
+					ModelsMatrices will be handled by animator.
+			Parser will be completed later to have a most advanced graphical 3D display /->
+
+3 <-	-Basic 3D graphic display implementation.
+			Implementation of the basic object graphic 3D display.
+			The models matrices is in the stdObject,
+			his view matrix is in the game Manager and his projectionMatrix is common to all gameObject.
+			Advanced 3D graphical display  with luminosity, shadow, particle and animation will be
+			implemented later /->
+
+4 <-	-Implementation of the gameObject object.
+			Think inheritance.
+			The gameObject has an index to a stdObject.
+			He has a type.
+				at least either static or dynamic.
+			He contains a draw method, a behaviour method and a physics method.
+				Draw method will be called  each frame for static object.
+				Draw, physics and behaviour method will be called each frame
+				for dynamic object.
+		-Physics implementation. /->
+
+5 <-	-Create the map object.
+			The view is to make all of the tile being a fast access to all of the static gameObject arround it.
+			Create method to make correspond the n tiles to the n * size of a tile openglUnit.
+			The map is a 2D pointeur array.
+			All the static gameobject wich has there hiitbox inside the tile are being pointed by the tiles.
+			Create several static object inheritant of the gameObject object.
+			Create a random map generator.
+				Find a way to have a map of variable heights and custom made openGL object to fill it.
+				Use Perlin Noise to generate heightmap.
+		-Meteo and ambiance will be implemented later. /->
+
+6 <-	Implement a gameManager Object.
+			this object contains the map and a list of he dynamic elements.
+				this object call the behaviour, physics, and draw method of all of thoses elements
+		He has a pointeur that bind the camera view and a pointer to a gameObject. /->
+
+7 <-	Basic dynamic entity implementation /->
+
+8 <-	Animation implementation /->
+
+9 <-	Player and input implementation /->
+
+10 <-	Spells Implementation /->
+
+11 <-	Monster and IA implementation /->
+
+12 <-	Loot implementation /->
+
+12 <-	Menu implementation /->
+
+...
